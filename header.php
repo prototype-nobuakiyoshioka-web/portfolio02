@@ -22,15 +22,24 @@
 	</a>
 
 	<nav class="site-header__nav" aria-label="<?php esc_attr_e( 'Primary navigation', 'portfolio-theme' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'primary',
-				'container'      => false,
-				'fallback_cb'    => false,
-			)
-		);
-		?>
+		<?php if ( has_nav_menu( 'primary' ) ) : ?>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'container'      => false,
+					'fallback_cb'    => false,
+				)
+			);
+			?>
+		<?php else : ?>
+			<ul>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Top', 'portfolio-theme' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/works/' ) ); ?>"><?php esc_html_e( 'Works', 'portfolio-theme' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About', 'portfolio-theme' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/service/' ) ); ?>"><?php esc_html_e( 'Service', 'portfolio-theme' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a></li>
+			</ul>
+		<?php endif; ?>
 	</nav>
 </header>
-
