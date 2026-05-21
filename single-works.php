@@ -11,13 +11,24 @@ while ( have_posts() ) :
 	the_post();
 
 	$production_year = function_exists( 'get_field' ) ? get_field( 'production_year' ) : '';
-	$scope           = function_exists( 'get_field' ) ? get_field( 'scope' ) : '';
+	$role_scope      = function_exists( 'get_field' ) ? get_field( 'role_scope' ) : '';
 	$technologies    = function_exists( 'get_field' ) ? get_field( 'technologies' ) : '';
 	$site_url        = function_exists( 'get_field' ) ? get_field( 'site_url' ) : '';
 	$overview        = function_exists( 'get_field' ) ? get_field( 'overview' ) : '';
-	$challenge       = function_exists( 'get_field' ) ? get_field( 'challenge' ) : '';
+	$problem         = function_exists( 'get_field' ) ? get_field( 'problem' ) : '';
 	$proposal        = function_exists( 'get_field' ) ? get_field( 'proposal' ) : '';
 	$result          = function_exists( 'get_field' ) ? get_field( 'result' ) : '';
+	$work_images     = array();
+
+	if ( function_exists( 'get_field' ) ) {
+		foreach ( array( 'work_image_01', 'work_image_02', 'work_image_03', 'work_image_04' ) as $image_field ) {
+			$image_id = (int) get_field( $image_field );
+
+			if ( $image_id ) {
+				$work_images[] = $image_id;
+			}
+		}
+	}
 	?>
 
 	<main id="primary" class="site-main">
@@ -30,69 +41,97 @@ while ( have_posts() ) :
 				<?php endif; ?>
 			</header>
 
-			<?php if ( has_post_thumbnail() ) : ?>
-				<figure class="work-detail__thumbnail section-reveal">
+			<figure class="work-detail__thumbnail section-reveal">
+				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail( 'full' ); ?>
-				</figure>
+				<?php else : ?>
+					<span><?php esc_html_e( 'Main Visual', 'portfolio-theme' ); ?></span>
+				<?php endif; ?>
+			</figure>
+
+			<?php if ( $production_year || $role_scope || $technologies || $site_url ) : ?>
+				<dl class="work-detail__meta section-reveal">
+					<?php if ( $production_year ) : ?>
+						<div>
+							<dt><?php esc_html_e( 'Year', 'portfolio-theme' ); ?></dt>
+							<dd><?php echo esc_html( $production_year ); ?></dd>
+						</div>
+					<?php endif; ?>
+					<?php if ( $role_scope ) : ?>
+						<div>
+							<dt><?php esc_html_e( 'Role', 'portfolio-theme' ); ?></dt>
+							<dd><?php echo nl2br( esc_html( $role_scope ) ); ?></dd>
+						</div>
+					<?php endif; ?>
+					<?php if ( $technologies ) : ?>
+						<div>
+							<dt><?php esc_html_e( 'Technology', 'portfolio-theme' ); ?></dt>
+							<dd><?php echo esc_html( $technologies ); ?></dd>
+						</div>
+					<?php endif; ?>
+					<?php if ( $site_url ) : ?>
+						<div>
+							<dt><?php esc_html_e( 'URL', 'portfolio-theme' ); ?></dt>
+							<dd><a href="<?php echo esc_url( $site_url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( preg_replace( '#^https?://#', '', $site_url ) ); ?></a></dd>
+						</div>
+					<?php endif; ?>
+				</dl>
 			<?php endif; ?>
 
-			<dl class="work-detail__meta section-reveal">
-				<?php if ( $production_year ) : ?>
-					<div>
-						<dt><?php esc_html_e( 'Year', 'portfolio-theme' ); ?></dt>
-						<dd><?php echo esc_html( $production_year ); ?></dd>
-					</div>
-				<?php endif; ?>
-				<?php if ( $scope ) : ?>
-					<div>
-						<dt><?php esc_html_e( 'Scope', 'portfolio-theme' ); ?></dt>
-						<dd><?php echo esc_html( $scope ); ?></dd>
-					</div>
-				<?php endif; ?>
-				<?php if ( $technologies ) : ?>
-					<div>
-						<dt><?php esc_html_e( 'Technology', 'portfolio-theme' ); ?></dt>
-						<dd><?php echo esc_html( $technologies ); ?></dd>
-					</div>
-				<?php endif; ?>
-				<?php if ( $site_url ) : ?>
-					<div>
-						<dt><?php esc_html_e( 'URL', 'portfolio-theme' ); ?></dt>
-						<dd><a href="<?php echo esc_url( $site_url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( preg_replace( '#^https?://#', '', $site_url ) ); ?></a></dd>
-					</div>
-				<?php endif; ?>
-			</dl>
+			<?php if ( get_the_content() ) : ?>
+				<div class="work-detail__content section-reveal">
+					<?php the_content(); ?>
+				</div>
+			<?php endif; ?>
 
-			<div class="work-detail__content section-reveal">
-				<?php the_content(); ?>
-			</div>
+			<?php if ( $overview || $problem || $proposal || $result ) : ?>
+				<div class="case-study section-reveal">
+					<?php if ( $overview ) : ?>
+						<section>
+							<h2><?php esc_html_e( 'Overview', 'portfolio-theme' ); ?></h2>
+							<p><?php echo nl2br( esc_html( $overview ) ); ?></p>
+						</section>
+					<?php endif; ?>
+					<?php if ( $problem ) : ?>
+						<section>
+							<h2><?php esc_html_e( 'Problem', 'portfolio-theme' ); ?></h2>
+							<p><?php echo nl2br( esc_html( $problem ) ); ?></p>
+						</section>
+					<?php endif; ?>
+					<?php if ( $proposal ) : ?>
+						<section>
+							<h2><?php esc_html_e( 'Proposal', 'portfolio-theme' ); ?></h2>
+							<p><?php echo nl2br( esc_html( $proposal ) ); ?></p>
+						</section>
+					<?php endif; ?>
+					<?php if ( $result ) : ?>
+						<section>
+							<h2><?php esc_html_e( 'Result', 'portfolio-theme' ); ?></h2>
+							<p><?php echo nl2br( esc_html( $result ) ); ?></p>
+						</section>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
 
-			<div class="case-study section-reveal">
-				<?php if ( $overview ) : ?>
-					<section>
-						<h2><?php esc_html_e( 'Overview', 'portfolio-theme' ); ?></h2>
-						<p><?php echo esc_html( $overview ); ?></p>
-					</section>
-				<?php endif; ?>
-				<?php if ( $challenge ) : ?>
-					<section>
-						<h2><?php esc_html_e( 'Challenge', 'portfolio-theme' ); ?></h2>
-						<p><?php echo esc_html( $challenge ); ?></p>
-					</section>
-				<?php endif; ?>
-				<?php if ( $proposal ) : ?>
-					<section>
-						<h2><?php esc_html_e( 'Proposal', 'portfolio-theme' ); ?></h2>
-						<p><?php echo esc_html( $proposal ); ?></p>
-					</section>
-				<?php endif; ?>
-				<?php if ( $result ) : ?>
-					<section>
-						<h2><?php esc_html_e( 'Result', 'portfolio-theme' ); ?></h2>
-						<p><?php echo esc_html( $result ); ?></p>
-					</section>
-				<?php endif; ?>
-			</div>
+			<?php if ( ! empty( $work_images ) ) : ?>
+				<section class="work-gallery section-reveal" aria-labelledby="work-gallery-heading">
+					<div class="section-heading">
+						<p class="section-label"><?php esc_html_e( 'Images', 'portfolio-theme' ); ?></p>
+						<h2 id="work-gallery-heading"><?php esc_html_e( '画面設計とディテール', 'portfolio-theme' ); ?></h2>
+					</div>
+					<div class="work-gallery__grid">
+						<?php foreach ( $work_images as $image_id ) : ?>
+							<figure class="work-gallery__item">
+								<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
+							</figure>
+						<?php endforeach; ?>
+					</div>
+				</section>
+			<?php endif; ?>
+
+			<nav class="work-detail__back section-reveal" aria-label="<?php esc_attr_e( 'Works navigation', 'portfolio-theme' ); ?>">
+				<a class="button button--ghost" href="<?php echo esc_url( get_post_type_archive_link( 'works' ) ); ?>"><?php esc_html_e( 'Back to Works', 'portfolio-theme' ); ?></a>
+			</nav>
 		</article>
 	</main>
 
