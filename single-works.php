@@ -34,44 +34,42 @@ while ( have_posts() ) :
 	<main id="primary" class="site-main">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'work-detail' ); ?>>
 			<header class="work-detail__hero section-reveal">
-				<p class="section-label"><?php esc_html_e( 'Work Detail', 'portfolio-theme' ); ?></p>
+				<p class="section-label"><?php esc_html_e( 'Works Detail', 'portfolio-theme' ); ?></p>
 				<h1><?php the_title(); ?></h1>
 				<?php if ( has_excerpt() ) : ?>
 					<p><?php echo esc_html( get_the_excerpt() ); ?></p>
 				<?php endif; ?>
 			</header>
 
-			<figure class="work-detail__thumbnail section-reveal">
-				<?php if ( has_post_thumbnail() ) : ?>
+			<?php if ( has_post_thumbnail() ) : ?>
+				<figure class="work-detail__thumbnail section-reveal">
 					<?php the_post_thumbnail( 'full' ); ?>
-				<?php else : ?>
-					<span><?php esc_html_e( 'Main Visual', 'portfolio-theme' ); ?></span>
-				<?php endif; ?>
-			</figure>
+				</figure>
+			<?php endif; ?>
 
 			<?php if ( $production_year || $role_scope || $technologies || $site_url ) : ?>
 				<dl class="work-detail__meta section-reveal">
 					<?php if ( $production_year ) : ?>
 						<div>
-							<dt><?php esc_html_e( 'Year', 'portfolio-theme' ); ?></dt>
+							<dt><?php esc_html_e( '制作年', 'portfolio-theme' ); ?></dt>
 							<dd><?php echo esc_html( $production_year ); ?></dd>
 						</div>
 					<?php endif; ?>
 					<?php if ( $role_scope ) : ?>
 						<div>
-							<dt><?php esc_html_e( 'Role', 'portfolio-theme' ); ?></dt>
+							<dt><?php esc_html_e( '担当範囲', 'portfolio-theme' ); ?></dt>
 							<dd><?php echo nl2br( esc_html( $role_scope ) ); ?></dd>
 						</div>
 					<?php endif; ?>
 					<?php if ( $technologies ) : ?>
 						<div>
-							<dt><?php esc_html_e( 'Technology', 'portfolio-theme' ); ?></dt>
+							<dt><?php esc_html_e( '使用技術', 'portfolio-theme' ); ?></dt>
 							<dd><?php echo esc_html( $technologies ); ?></dd>
 						</div>
 					<?php endif; ?>
 					<?php if ( $site_url ) : ?>
 						<div>
-							<dt><?php esc_html_e( 'URL', 'portfolio-theme' ); ?></dt>
+							<dt><?php esc_html_e( 'サイトURL', 'portfolio-theme' ); ?></dt>
 							<dd><a href="<?php echo esc_url( $site_url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( preg_replace( '#^https?://#', '', $site_url ) ); ?></a></dd>
 						</div>
 					<?php endif; ?>
@@ -88,25 +86,25 @@ while ( have_posts() ) :
 				<div class="case-study section-reveal">
 					<?php if ( $overview ) : ?>
 						<section>
-							<h2><?php esc_html_e( 'Overview', 'portfolio-theme' ); ?></h2>
+							<h2><?php esc_html_e( '概要', 'portfolio-theme' ); ?></h2>
 							<p><?php echo nl2br( esc_html( $overview ) ); ?></p>
 						</section>
 					<?php endif; ?>
 					<?php if ( $problem ) : ?>
 						<section>
-							<h2><?php esc_html_e( 'Problem', 'portfolio-theme' ); ?></h2>
+							<h2><?php esc_html_e( '課題', 'portfolio-theme' ); ?></h2>
 							<p><?php echo nl2br( esc_html( $problem ) ); ?></p>
 						</section>
 					<?php endif; ?>
 					<?php if ( $proposal ) : ?>
 						<section>
-							<h2><?php esc_html_e( 'Proposal', 'portfolio-theme' ); ?></h2>
+							<h2><?php esc_html_e( '提案', 'portfolio-theme' ); ?></h2>
 							<p><?php echo nl2br( esc_html( $proposal ) ); ?></p>
 						</section>
 					<?php endif; ?>
 					<?php if ( $result ) : ?>
 						<section>
-							<h2><?php esc_html_e( 'Result', 'portfolio-theme' ); ?></h2>
+							<h2><?php esc_html_e( '成果', 'portfolio-theme' ); ?></h2>
 							<p><?php echo nl2br( esc_html( $result ) ); ?></p>
 						</section>
 					<?php endif; ?>
@@ -117,7 +115,7 @@ while ( have_posts() ) :
 				<section class="work-gallery section-reveal" aria-labelledby="work-gallery-heading">
 					<div class="section-heading">
 						<p class="section-label"><?php esc_html_e( 'Images', 'portfolio-theme' ); ?></p>
-						<h2 id="work-gallery-heading"><?php esc_html_e( '画面設計とディテール', 'portfolio-theme' ); ?></h2>
+						<h2 id="work-gallery-heading"><?php esc_html_e( '画像', 'portfolio-theme' ); ?></h2>
 					</div>
 					<div class="work-gallery__grid">
 						<?php foreach ( $work_images as $image_id ) : ?>

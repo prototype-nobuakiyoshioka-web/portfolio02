@@ -18,22 +18,32 @@ $featured_works = new WP_Query(
 ?>
 
 <main id="primary" class="site-main site-main--front">
-	<section class="front-hero section-reveal" aria-labelledby="front-hero-title">
+	<section class="front-hero" aria-labelledby="front-hero-title">
 		<div class="front-hero__inner">
-			<p class="section-label"><?php esc_html_e( 'Portfolio / Web Production', 'portfolio-theme' ); ?></p>
-			<h1 id="front-hero-title"><?php esc_html_e( '伝わる設計と、静かな余白で信頼をつくるWeb制作。', 'portfolio-theme' ); ?></h1>
-			<p class="front-hero__lead">
+			<p class="section-label front-hero__eyebrow js-hero-reveal"><?php esc_html_e( 'Portfolio / Web Production', 'portfolio-theme' ); ?></p>
+			<h1 id="front-hero-title" class="front-hero__title">
+				<span class="js-hero-reveal"><?php esc_html_e( 'Design', 'portfolio-theme' ); ?></span>
+				<span class="js-hero-reveal"><?php esc_html_e( '& Build', 'portfolio-theme' ); ?></span>
+				<span class="front-hero__title-ja js-hero-reveal"><?php esc_html_e( '伝わる設計と、静かな余白で信頼をつくるWeb制作。', 'portfolio-theme' ); ?></span>
+			</h1>
+			<p class="front-hero__lead js-hero-reveal">
 				<?php esc_html_e( '営業先の担当者が安心して相談できるように、目的整理から実装まで一貫して形にします。WordPressを中心に、運用しやすく美しいサイトを制作します。', 'portfolio-theme' ); ?>
 			</p>
-			<div class="front-hero__actions">
+			<div class="front-hero__actions js-hero-reveal">
 				<a class="button button--dark" href="<?php echo esc_url( home_url( '/works/' ) ); ?>"><?php esc_html_e( 'View Works', 'portfolio-theme' ); ?></a>
 				<a class="button button--ghost" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
 			</div>
 		</div>
-		<div class="front-hero__meta" aria-label="<?php esc_attr_e( 'Strengths', 'portfolio-theme' ); ?>">
-			<p><?php esc_html_e( 'WordPress Theme', 'portfolio-theme' ); ?></p>
-			<p><?php esc_html_e( 'Responsive Design', 'portfolio-theme' ); ?></p>
-			<p><?php esc_html_e( 'GSAP Motion', 'portfolio-theme' ); ?></p>
+		<div class="front-hero__side js-hero-reveal">
+			<div class="front-hero__meta" aria-label="<?php esc_attr_e( 'Strengths', 'portfolio-theme' ); ?>">
+				<p><?php esc_html_e( 'WordPress Theme', 'portfolio-theme' ); ?></p>
+				<p><?php esc_html_e( 'Responsive Design', 'portfolio-theme' ); ?></p>
+				<p><?php esc_html_e( 'GSAP Motion', 'portfolio-theme' ); ?></p>
+			</div>
+			<a class="front-hero__scroll" href="#works-heading">
+				<span><?php esc_html_e( 'Scroll', 'portfolio-theme' ); ?></span>
+				<span aria-hidden="true"></span>
+			</a>
 		</div>
 	</section>
 
