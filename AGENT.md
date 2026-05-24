@@ -34,14 +34,25 @@
 
 ## Tech Stack
 
-- WordPress
-- Original WordPress Theme
-- PHP
-- HTML
-- CSS
-- JavaScript
-- GSAP for animation
-- ACF for custom fields
+- WordPress（オリジナルテーマ） / PHP 8.0+
+- HTML / CSS / JavaScript（ES2020）
+- GSAP 3 + ScrollTrigger
+- ACF（カスタムフィールド）
+- Node.js 20+ / npm（ビルド・検証用）
+- csso（CSS最小化）、terser（JS最小化）
+- puppeteer-core + system Chrome、lighthouse + chrome-launcher（検証）
+
+## Commands
+
+```sh
+npm install              # 依存パッケージ
+npm run build            # CSS/JS を minify、検証用 静的HTML を dist/ に生成
+npm run preview          # dist/ をプレビュー（http://127.0.0.1:4173）
+npm run screenshots      # 375 / 768 / 1440 でスクリーンショット
+npm run lighthouse       # Lighthouse 4カテゴリ実行
+npm run verify           # build → screenshots → lighthouse 一括
+npm run clean            # dist/ を削除
+```
 
 ## Site Direction
 
@@ -109,6 +120,7 @@
 - 画像を大きく見せる
 - 8pxグリッドを意識する
 - SP表示を必ず確認する
+- 詳細なデザイントークン（色・タイポ・コンポーネント）は [design.md](design.md) を参照する
 
 ## Do Not Touch
 

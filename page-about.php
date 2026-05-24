@@ -85,7 +85,7 @@ get_header();
 	<section class="contact-cta section-reveal" aria-labelledby="about-cta">
 		<p class="section-label"><?php esc_html_e( 'CTA', 'portfolio-theme' ); ?></p>
 		<h2 id="about-cta"><?php esc_html_e( '制作の相談や実績について、お気軽にご連絡ください。', 'portfolio-theme' ); ?></h2>
-		<a class="button button--light" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
+		<a class="button button--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
 	</section>
 </main>
 
