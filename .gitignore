@@ -6,4 +6,6 @@ build/
 *.log
 .env
 .env.*
+.claude/settings.local.json
+.claude/worktrees/
 

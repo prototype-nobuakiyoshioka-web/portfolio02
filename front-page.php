@@ -26,7 +26,7 @@ $featured_works = new WP_Query(
 				<?php esc_html_e( '営業先の担当者が安心して相談できるように、目的整理から実装まで一貫して形にします。WordPressを中心に、運用しやすく美しいサイトを制作します。', 'portfolio-theme' ); ?>
 			</p>
 			<div class="front-hero__actions">
-				<a class="button button--dark" href="<?php echo esc_url( home_url( '/works/' ) ); ?>"><?php esc_html_e( 'View Works', 'portfolio-theme' ); ?></a>
+				<a class="button button--primary" href="<?php echo esc_url( home_url( '/works/' ) ); ?>"><?php esc_html_e( 'View Works', 'portfolio-theme' ); ?></a>
 				<a class="button button--ghost" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
 			</div>
 		</div>
@@ -112,7 +112,7 @@ $featured_works = new WP_Query(
 	<section class="contact-cta section-reveal" aria-labelledby="contact-heading">
 		<p class="section-label"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></p>
 		<h2 id="contact-heading"><?php esc_html_e( 'Web制作の相談を、まずは小さく始めましょう。', 'portfolio-theme' ); ?></h2>
-		<a class="button button--light" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
+		<a class="button button--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
 	</section>
 </main>
 

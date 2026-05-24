@@ -10,11 +10,15 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#0f1418">
+	<link rel="preload" href="<?php echo esc_url( get_template_directory_uri() . '/dist/assets/fonts/hanken-grotesk.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<a class="skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'portfolio-theme' ); ?></a>
 
 <header class="site-header">
 	<a class="site-header__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">

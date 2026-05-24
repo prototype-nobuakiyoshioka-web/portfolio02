@@ -69,7 +69,7 @@ get_header();
 	<section class="contact-cta section-reveal" aria-labelledby="service-cta">
 		<p class="section-label"><?php esc_html_e( 'CTA', 'portfolio-theme' ); ?></p>
 		<h2 id="service-cta"><?php esc_html_e( '作りたいサイトの方向性が固まっていなくても相談できます。', 'portfolio-theme' ); ?></h2>
-		<a class="button button--light" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
+		<a class="button button--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></a>
 	</section>
 </main>
 

@@ -50,7 +50,7 @@ get_header();
 		<p><?php esc_html_e( '制作内容、参考サイト、予算感、希望納期を添えていただくと、より具体的に返信できます。', 'portfolio-theme' ); ?></p>
 		<div class="contact-panel__actions">
 			<?php if ( $contact_email ) : ?>
-				<a class="button button--dark" href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php echo esc_html( antispambot( $contact_email ) ); ?></a>
+				<a class="button button--primary" href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php echo esc_html( antispambot( $contact_email ) ); ?></a>
 			<?php endif; ?>
 			<a class="button button--ghost" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'GitHub', 'portfolio-theme' ); ?></a>
 		</div>

@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build pipeline and verification scripts for the Portfolio Theme.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "preview": "node tools/server.mjs",
+    "screenshots": "node tools/screenshots.mjs",
+    "lighthouse": "node tools/lighthouse.mjs",
+    "verify": "npm run build && npm run screenshots && npm run lighthouse",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "@fontsource-variable/hanken-grotesk": "^5.2.8",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "chrome-launcher": "^1.1.2",
+    "csso": "^5.0.5",
+    "lighthouse": "^11.7.1",
+    "puppeteer-core": "^22.15.0",
+    "terser": "^5.31.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
