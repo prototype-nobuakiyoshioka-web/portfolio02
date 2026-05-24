@@ -15,45 +15,48 @@ get_header();
 	<section class="lower-hero section-reveal" aria-labelledby="contact-title">
 		<p class="section-label"><?php esc_html_e( 'Contact', 'portfolio-theme' ); ?></p>
 		<h1 id="contact-title"><?php esc_html_e( 'Web制作の相談を、気軽にお聞かせください。', 'portfolio-theme' ); ?></h1>
+		<p class="lower-hero__lead"><?php esc_html_e( '新規制作、WordPress構築、LP制作、既存サイトの改善など、分かる範囲の情報から相談できます。', 'portfolio-theme' ); ?></p>
 	</section>
 
-	<section class="lower-section contact-intro section-reveal" aria-labelledby="contact-intro-title">
-		<p class="section-label"><?php esc_html_e( 'Contact intro', 'portfolio-theme' ); ?></p>
-		<h2 id="contact-intro-title"><?php esc_html_e( 'まだ内容が固まっていない段階でも大丈夫です。', 'portfolio-theme' ); ?></h2>
-		<p><?php esc_html_e( '目的、参考サイト、必要なページ、希望公開時期など、分かる範囲でお知らせください。内容を整理しながら、必要な制作範囲を一緒に考えます。', 'portfolio-theme' ); ?></p>
-	</section>
-
-	<section class="lower-section section-reveal" aria-labelledby="contact-topics">
-		<div class="section-heading">
-			<p class="section-label"><?php esc_html_e( 'Topics', 'portfolio-theme' ); ?></p>
-			<h2 id="contact-topics"><?php esc_html_e( '相談できる内容', 'portfolio-theme' ); ?></h2>
+	<section class="lower-section lower-split section-reveal" aria-labelledby="contact-intro-title">
+		<div>
+			<p class="section-label"><?php esc_html_e( 'Intro', 'portfolio-theme' ); ?></p>
+			<h2 id="contact-intro-title"><?php esc_html_e( 'まだ内容が固まっていない段階でも大丈夫です。', 'portfolio-theme' ); ?></h2>
 		</div>
-		<div class="skill-grid">
-			<article>
-				<h3><?php esc_html_e( '新規サイト制作', 'portfolio-theme' ); ?></h3>
-				<p><?php esc_html_e( '事業紹介、サービス紹介、個人ポートフォリオなどの新規制作。', 'portfolio-theme' ); ?></p>
-			</article>
-			<article>
-				<h3><?php esc_html_e( 'WordPress化', 'portfolio-theme' ); ?></h3>
-				<p><?php esc_html_e( '既存デザインのテーマ化、更新しやすい投稿設計、ACFの導入。', 'portfolio-theme' ); ?></p>
-			</article>
-			<article>
-				<h3><?php esc_html_e( '改善・保守', 'portfolio-theme' ); ?></h3>
-				<p><?php esc_html_e( '表示崩れ修正、導線改善、ページ追加、軽微な更新作業。', 'portfolio-theme' ); ?></p>
-			</article>
+		<div class="lower-text">
+			<p><?php esc_html_e( '目的、参考サイト、必要なページ、希望公開時期、予算感など、分かる範囲でお知らせください。内容を整理しながら、必要な制作範囲を一緒に考えます。', 'portfolio-theme' ); ?></p>
 		</div>
 	</section>
 
-	<section class="contact-panel section-reveal" aria-labelledby="contact-way">
-		<p class="section-label"><?php esc_html_e( 'Contact Link', 'portfolio-theme' ); ?></p>
-		<h2 id="contact-way"><?php esc_html_e( '問い合わせ導線', 'portfolio-theme' ); ?></h2>
-		<p><?php esc_html_e( '制作内容、参考サイト、予算感、希望納期を添えていただくと、より具体的に返信できます。', 'portfolio-theme' ); ?></p>
-		<div class="contact-panel__actions">
+	<section class="contact-form-section section-reveal" aria-labelledby="contact-form-title">
+		<p class="section-label"><?php esc_html_e( 'Form', 'portfolio-theme' ); ?></p>
+		<h2 id="contact-form-title"><?php esc_html_e( 'お問い合わせフォーム', 'portfolio-theme' ); ?></h2>
+		<?php echo do_shortcode( '[contact-form-7 id="3d21c21" title="Contact Form"]' ); ?>
+	</section>
+
+	<section class="contact-links section-reveal" aria-labelledby="contact-links-title">
+		<p class="section-label"><?php esc_html_e( 'Links', 'portfolio-theme' ); ?></p>
+		<h2 id="contact-links-title"><?php esc_html_e( 'メールまたは外部リンクからご連絡ください。', 'portfolio-theme' ); ?></h2>
+		<div class="contact-links__list">
 			<?php if ( $contact_email ) : ?>
-				<a class="button button--primary" href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php echo esc_html( antispambot( $contact_email ) ); ?></a>
+				<a href="mailto:<?php echo esc_attr( $contact_email ); ?>">
+					<span><?php esc_html_e( 'Mail', 'portfolio-theme' ); ?></span>
+					<strong><?php echo esc_html( antispambot( $contact_email ) ); ?></strong>
+				</a>
 			<?php endif; ?>
-			<a class="button button--ghost" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'GitHub', 'portfolio-theme' ); ?></a>
+			<a href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener noreferrer">
+				<span><?php esc_html_e( 'SNS / External', 'portfolio-theme' ); ?></span>
+				<strong><?php esc_html_e( 'GitHub', 'portfolio-theme' ); ?></strong>
+			</a>
 		</div>
+	</section>
+
+	<section class="contact-cta section-reveal" aria-labelledby="contact-cta">
+		<p class="section-label"><?php esc_html_e( 'CTA', 'portfolio-theme' ); ?></p>
+		<h2 id="contact-cta"><?php esc_html_e( '小さな相談からでも、制作の方向性を整理します。', 'portfolio-theme' ); ?></h2>
+		<?php if ( $contact_email ) : ?>
+			<a class="button button--light" href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php esc_html_e( 'Send Mail', 'portfolio-theme' ); ?></a>
+		<?php endif; ?>
 	</section>
 </main>
 
